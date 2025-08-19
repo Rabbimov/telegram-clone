@@ -1,0 +1,39 @@
+@layer utilities {
+  .container {
+    /* Markazlashtirish */
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Padding qo'shish */
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+
+    /* Responsive kengliklari */
+    width: 100%;
+    max-width: "100%";
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: "100%";
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: "100%";
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: "1024px";
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: "1280px";
+    }
+  }
+}
