@@ -9,7 +9,7 @@ import {
   AvatarImage,
 } from "@/shared/components/ui/avatar";
 import { useRouter } from "next/navigation";
-import { useCurrentContact } from "../model/use-current";
+import { useCurrentContact } from "../model/store";
 import { cn } from "@/shared/lib/utils";
 interface Props {
   contacts: IUser[];

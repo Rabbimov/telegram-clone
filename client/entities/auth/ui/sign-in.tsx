@@ -1,7 +1,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { authSchema } from "../model/validation";
+import { authSchema } from "../../../shared/lib/validation";
 import z from "zod";
 import { Button } from "@/shared/components/ui/button";
 import {

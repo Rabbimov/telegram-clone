@@ -18,7 +18,7 @@ import {
 } from "@/shared/components/ui/form";
 import { Input } from "@/shared/components/ui/input";
 import { Label } from "@/shared/components/ui/label";
-import { otpSchema } from "../model/validation";
+import { otpSchema } from "../../../shared/lib/validation";
 import { useAuth } from "../model/store";
 
 const Verify = () => {
