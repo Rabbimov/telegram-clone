@@ -6,6 +6,7 @@ import Chat from "@/entities/chat/ui/chat";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
+import { fi } from "zod/locales";
 
 const Page = () => {
   const router = useRouter();
@@ -29,18 +30,56 @@ const Page = () => {
         {/* Add Contact */}
         {!currentContact?._id && <AddContact />}
         {/* Chat Area */}
-        {currentContact?._id && <Chat />}
+        {currentContact?._id && <Chat messages={messages} />}
       </div>
     </>
   );
 };
 
 const contactData = [
-  { _id: "1", email: "edo@gmail.com", avatar: "https://github.com/shadcn.png" },
-  { _id: "2", email: "samar@gmail.com", avatar: "/" },
-  { _id: "3", email: "bayramali@gmail.com", avatar: "/" },
-  { _id: "4", email: "kamol@gmail.com", avatar: "/" },
-  { _id: "5", email: "siddiq@gmail.com", avatar: "/" },
+  {
+    _id: "1",
+    email: "edo@gmail.com",
+    avatar: "https://github.com/shadcn.png",
+    firstName: "Edo",
+    lastName: "Shad",
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis maiores vitae nostrum similique magni. Nesciunt, voluptates adipisci. Ex atque voluptate et, harum, ea expedita sed repudiandae quod saepe aperiam quis!",
+  },
+  {
+    _id: "2",
+    email: "samar@gmail.com",
+    avatar: "/",
+    firstName: "Samar",
+    lastName: "Ali",
+    bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis maiores vitae nostrum similique magni. Nesciunt, voluptates adipisci. Ex atque voluptate et, harum, ea expedita sed repudiandae quod saepe aperiam quis!",
+  },
+  {
+    _id: "3",
+    email: "bayramali@gmail.com",
+    avatar: "/",
+    firstName: "Bayram",
+    lastName: "Ali",
+  },
+  {
+    _id: "4",
+    email: "kamol@gmail.com",
+    avatar: "/",
+    firstName: "Kamol",
+    lastName: "Ali",
+  },
+  {
+    _id: "5",
+    email: "siddiq@gmail.com",
+    avatar: "/",
+    firstName: "Siddiq",
+    lastName: "Ali",
+  },
+];
+const messages = [
+  { _id: "1", text: "Hello world" },
+  { _id: "2", text: "My work" },
+  { _id: "3", text: "I send you Hello" },
+  { _id: "4", text: "go" },
 ];
 
 export default Page;

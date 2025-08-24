@@ -7,6 +7,15 @@ import {
 } from "@/shared/components/ui/avatar";
 import { Button } from "@/shared/components/ui/button";
 import { Settings2 } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/shared/components/ui/sheet";
+import { Separator } from "@/shared/components/ui/separator";
+import Image from "next/image";
 
 interface Props {
   contact: IUser | null;
@@ -52,9 +61,73 @@ const TopChart: FC<Props> = ({ contact }) => {
           </p>
         </div>
       </div>
-      <Button size={"icon"} variant={"secondary"}>
-        <Settings2 />
-      </Button>
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button size={"icon"} variant={"secondary"}>
+            <Settings2 />
+          </Button>
+        </SheetTrigger>
+        <SheetContent className="!bg-background max-md:w-full p-2 px-4 overflow-y-scroll sidebar-custom-scrollbar">
+          <SheetHeader>
+            <SheetTitle />
+          </SheetHeader>
+          <div className="mx-auto w-1/2 h-36 relative">
+            <Avatar className="w-full h-36">
+              <AvatarImage
+                src={contact?.avatar}
+                alt={contact?.email}
+                className="object-cover"
+              />
+              <AvatarFallback className=" text-6xl uppercase">
+                {contact?.email?.[0]}
+              </AvatarFallback>
+            </Avatar>
+          </div>
+          <Separator className="my-2 w-full" />
+          <h1 className="text-center capitalize text-xl font-medium">
+            {contact?.email}
+          </h1>
+          <div className="flex flex-col space-y-1">
+            {contact?.firstName && (
+              <div className="flex items-center gap-1 mt-4">
+                <p className="font-spaceGrotesk">First Name: </p>
+                <p className="font-spaceGrotesk text-muted-foreground">
+                  {contact?.firstName}
+                </p>
+              </div>
+            )}
+            {contact?.lastName && (
+              <div className="flex items-center gap-1 mt-4">
+                <p className="font-spaceGrotesk">Last Name: </p>
+                <p className="font-spaceGrotesk text-muted-foreground">
+                  {contact?.lastName}
+                </p>
+              </div>
+            )}
+            {contact?.bio && (
+              <div className="flex items-center gap-1 mt-4">
+                <p className="font-spaceGrotesk">
+                  About:{" "}
+                  <span className="font-spaceGrotesk text-muted-foreground">
+                    {contact?.bio}
+                  </span>
+                </p>
+              </div>
+            )}
+            <Separator className="my-2" />
+            <div className="flex flex-col space-y-2">
+              <div className="w-full h-36 relative">
+                <Image
+                  src={"https://github.com/shadcn.png"}
+                  alt={"https://github.com/shadcn.png"}
+                  fill
+                  className="object-cover rounded-md"
+                />
+              </div>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
     </div>
   );
 };
